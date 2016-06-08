@@ -1,0 +1,10 @@
+- name: logstash server setup
+  hosts: logstashserver
+  gather_facts: no
+  tasks:
+    - docker_service:
+        project_src: /logstash/logstash_server
+        environment:
+          LOGSTASH_SERVER_IP: 10.0.15.70
+          LOGSTASH_SERVER_HOSTNAME: LogstashServer
+          LOGSTASH_SERVER_NGINXPASS: loven

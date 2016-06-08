@@ -1,0 +1,8 @@
+- name: logstash client setup node1
+  hosts: node1-container1, node1-container2, node1-container3
+  gather_facts: no
+  tasks:
+    - docker_service:
+        project_src: /logstash/logstash_client
+        environment:
+          elk_server_private_ip: 10.0.15.70

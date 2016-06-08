@@ -1,0 +1,38 @@
+- name: mesos-zookeeper cluster node1
+  hosts: node1
+  gather_facts: no
+  tasks:
+    - docker_service:
+        project_src: /mesos_cluster/mesos_slaves
+        environment:
+          MYID: 1
+          HOSTIP: IP1
+          SERVER1: 10.0.15.67
+          SERVER2: 10.0.15.68
+          SERVER3: 10.0.15.69
+
+- name: mesos-zookeeper cluster node2
+  hosts: node2
+  gather_facts: no
+  tasks:
+    - docker_service:
+        project_src: /mesos_cluster/mesos_slaves
+        environment:
+          MYID: 2
+          HOSTIP: IP2
+          SERVER1: 10.0.15.67
+          SERVER2: 10.0.15.68
+          SERVER3: 10.0.15.69
+
+- name: mesos-zookeeper cluster node3
+  hosts: node3
+  gather_facts: no
+  tasks:
+    - docker_service:
+        project_src: /mesos_cluster/mesos_slaves
+        environment:
+          MYID: 3
+          HOSTIP: IP3
+          SERVER1: 10.0.15.67
+          SERVER2: 10.0.15.68
+          SERVER3: 10.0.15.69

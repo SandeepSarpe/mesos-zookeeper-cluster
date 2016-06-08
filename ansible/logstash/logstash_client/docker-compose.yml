@@ -1,0 +1,15 @@
+version: '2'
+services:
+  logstash-server:
+    build:
+      context: . #current dir as build context
+      args:
+        logstashserverip: ${LOGSTASH_SERVER_IP}
+        logstashserverhostname: ${LOGSTASH_SERVER_HOSTNAME}
+        logstashservernginxpass: ${LOGSTASH_SERVER_NGINXPASS}
+    image: logstashserver
+    restart: always
+    container_name: logstashserver
+    hostname: logstashserver
+    network_mode: host
+    privileged: true
