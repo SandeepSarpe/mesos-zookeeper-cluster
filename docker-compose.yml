@@ -1,0 +1,13 @@
+version: '2'
+services:
+  ansible-service:
+    build:
+      context: . #current dir as build context
+    image: ansible-image
+    restart: always
+    container_name: ansible
+    hostname: ansible
+    network_mode: host
+    privileged: true
+    volumes:
+      - ./volume/loven:/home/
