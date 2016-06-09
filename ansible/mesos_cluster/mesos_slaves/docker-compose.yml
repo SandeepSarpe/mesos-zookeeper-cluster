@@ -4,7 +4,7 @@ services:
     build: .
     image: mesos-slave:Spark1.6.0-Scala2.11
     restart: always
-    container_name: mesos-slave_1
+    container_name: mesos-slave
     network_mode: host
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup
