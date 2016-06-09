@@ -1,4 +1,4 @@
-- name: logstash server setup
+- name: Create spark-job submitter on Node4
   hosts: Node4
   gather_facts: no
   sudo: yes
@@ -23,12 +23,9 @@
         update_cache: yes
     - pip:
         name: docker-compose
+    - shell: mkdir /home/diwo
     - git:
         repo: https://github.com/SandeepSarpe/mesos-zookeeper-cluster.git
-        dest: /home/ubuntu/
+        dest: /home/diwo/
     - docker_service:
-        project_src: /home/ubuntu/ansible/mesos_cluster/mesos_zookeeper_cluster
-  environment:
-    LOGSTASH_SERVER_IP: 10.0.15.80
-    LOGSTASH_SERVER_HOSTNAME: Node4
-    LOGSTASH_SERVER_NGINXPASS: loven
+        project_src: /home/diwo/ansible/mesos_cluster/spark_job_submitter

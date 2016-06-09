@@ -6,5 +6,6 @@ ARG logstashserverhostname
 ARG logstashservernginxpass
 
 # Install and configure filebeat
+RUN
 
 
