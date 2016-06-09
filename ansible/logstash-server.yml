@@ -29,6 +29,6 @@
     - docker_service:
         project_src: /home/ubuntu/ansible/mesos_cluster/mesos_zookeeper_cluster
   environment:
-    LOGSTASH_SERVER_IP: 10.0.15.80
-    LOGSTASH_SERVER_HOSTNAME: Node4
+    LOGSTASH_SERVER_IP: 10.0.1.215
+    LOGSTASH_SERVER_HOSTNAME: ec2-52-91-199-29.compute-1.amazonaws.com
     LOGSTASH_SERVER_NGINXPASS: loven

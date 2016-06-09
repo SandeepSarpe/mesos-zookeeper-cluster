@@ -5,4 +5,4 @@
     - docker_service:
         project_src: /logstash/logstash_client
         environment:
-          elk_server_private_ip: 10.0.15.70
+          elk_server_private_ip: 10.0.1.215
