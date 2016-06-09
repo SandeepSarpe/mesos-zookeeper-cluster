@@ -1,7 +1,8 @@
-- name: mesos-zookeeper cluster node1
-  hosts: node1
+- name: mesos-zookeeper cluster Node1
+  hosts: Node1
   gather_facts: no
   sudo: yes
+  tasks:
     - apt:
         name: python-yaml
     - apt:
@@ -38,6 +39,7 @@
   hosts: Node2
   gather_facts: no
   sudo: yes
+  tasks:
     - apt:
         name: python-yaml
     - apt:
@@ -74,6 +76,7 @@
   hosts: Node3
   gather_facts: no
   sudo: yes
+  tasks:
     - apt:
         name: python-yaml
     - apt:
