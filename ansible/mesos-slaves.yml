@@ -30,10 +30,10 @@
     - docker_service:
         project_src: /home/diwo/ansible/mesos_cluster/mesos_slaves
   environment:
-    HOSTIP: 10.0.1.137
-    SERVER1: 10.0.1.137
+    HOSTIP: 10.0.1.4
+    SERVER1: 10.0.1.4
     SERVER2: 10.0.1.135
-    SERVER3: 10.0.1.136
+    SERVER3: 10.0.1.5
 
 - name: mesos-zookeeper cluster Node2
   hosts: ec2-54-173-215-166.compute-1.amazonaws.com
@@ -68,9 +68,9 @@
         project_src: /home/diwo/ansible/mesos_cluster/mesos_slaves
   environment:
     HOSTIP: 10.0.1.135
-    SERVER1: 10.0.1.137
+    SERVER1: 10.0.1.4
     SERVER2: 10.0.1.135
-    SERVER3: 10.0.1.136
+    SERVER3: 10.0.1.5
 
 - name: mesos-zookeeper cluster Node3
   hosts: ec2-54-88-49-8.compute-1.amazonaws.com
@@ -104,7 +104,7 @@
     - docker_service:
         project_src: /home/diwo/ansible/mesos_cluster/mesos_slaves
   environment:
-    HOSTIP: 10.0.1.136
-    SERVER1: 10.0.1.137
+    HOSTIP: 10.0.1.5
+    SERVER1: 10.0.1.4
     SERVER2: 10.0.1.135
-    SERVER3: 10.0.1.136
+    SERVER3: 10.0.1.5
