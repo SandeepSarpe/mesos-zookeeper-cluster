@@ -1,5 +1,5 @@
 - name: logstash server setup
-  hosts: Node4
+  hosts: ec2-52-91-199-29.compute-1.amazonaws.com
   gather_facts: no
   sudo: yes
   tasks:

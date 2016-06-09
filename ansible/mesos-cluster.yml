@@ -1,5 +1,5 @@
 - name: mesos-zookeeper cluster on Node1
-  hosts: Node1
+  hosts: ec2-54-86-116-199.compute-1.amazonaws.com
   gather_facts: no
   sudo: yes
   tasks:
@@ -36,7 +36,7 @@
     SERVER3: 10.0.1.136
 
 - name: mesos-zookeeper cluster on Node2
-  hosts: Node2
+  hosts: ec2-54-173-215-166.compute-1.amazonaws.com
   gather_facts: no
   sudo: yes
   tasks:
@@ -73,7 +73,7 @@
     SERVER3: 10.0.1.136
 
 - name: mesos-zookeeper cluster on Node2
-  hosts: Node3
+  hosts: ec2-54-88-49-8.compute-1.amazonaws.com
   gather_facts: no
   sudo: yes
   tasks:
