@@ -1,3 +1,4 @@
+# This is to build and run docker container containing ansible
 version: '2'
 services:
   ansible-service:
@@ -6,8 +7,5 @@ services:
     image: ansible-image
     restart: always
     container_name: ansible
-    hostname: ansible
     network_mode: host
     privileged: true
-    volumes:
-      - ./volume/loven:/home/
