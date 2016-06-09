@@ -1,4 +1,4 @@
-FROM mesoscloud/mesos-slave:0.28.1-ubuntu-14.04
+FROM nimmis/ubuntu:14.04
 MAINTAINER Sandeep Sarpe <sarpe.sandeep@gmail.com>
 
 Run echo 'Updating the base ubuntu image with dependencies needed for Spark.......'
