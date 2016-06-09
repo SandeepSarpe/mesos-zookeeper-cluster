@@ -1,38 +1,107 @@
 - name: mesos-zookeeper cluster node1
   hosts: node1
   gather_facts: no
-  tasks:
+  sudo: yes
+    - apt:
+        name: python-yaml
+    - apt:
+        name: docker.io
+        state: latest
+        update_cache: yes
+    - apt_key:
+        keyserver: hkp://p80.pool.sks-keyservers.net:80
+        id: 58118E89F3A912897C070ADBF76221572C52609D
+    - shell: echo 'deb https://apt.dockerproject.org/repo ubuntu-trusty main' >> /etc/apt/sources.list.d/docker.list
+    - apt:
+        name: docker-engine
+        update_cache: yes
+        purge: yes
+    - apt:
+        name: python-pip
+        force: yes
+        update_cache: yes
+    - pip:
+        name: docker-compose
+    - shell: mkdir /home/diwo
+    - git:
+        repo: https://github.com/SandeepSarpe/mesos-zookeeper-cluster.git
+        dest: /home/diwo/
     - docker_service:
-        project_src: /mesos_cluster/mesos_slaves
-        environment:
-          MYID: 1
-          HOSTIP: IP1
-          SERVER1: 10.0.15.67
-          SERVER2: 10.0.15.68
-          SERVER3: 10.0.15.69
+        project_src: /home/diwo/ansible/mesos_cluster/mesos_slaves
+  environment:
+    HOSTIP: 10.0.15.77
+    SERVER1: 10.0.15.77
+    SERVER2: 10.0.15.78
+    SERVER3: 10.0.15.79
 
-- name: mesos-zookeeper cluster node2
-  hosts: node2
+- name: mesos-zookeeper cluster Node2
+  hosts: Node2
   gather_facts: no
-  tasks:
+  sudo: yes
+    - apt:
+        name: python-yaml
+    - apt:
+        name: docker.io
+        state: latest
+        update_cache: yes
+    - apt_key:
+        keyserver: hkp://p80.pool.sks-keyservers.net:80
+        id: 58118E89F3A912897C070ADBF76221572C52609D
+    - shell: echo 'deb https://apt.dockerproject.org/repo ubuntu-trusty main' >> /etc/apt/sources.list.d/docker.list
+    - apt:
+        name: docker-engine
+        update_cache: yes
+        purge: yes
+    - apt:
+        name: python-pip
+        force: yes
+        update_cache: yes
+    - pip:
+        name: docker-compose
+    - shell: mkdir /home/diwo
+    - git:
+        repo: https://github.com/SandeepSarpe/mesos-zookeeper-cluster.git
+        dest: /home/diwo/
     - docker_service:
-        project_src: /mesos_cluster/mesos_slaves
-        environment:
-          MYID: 2
-          HOSTIP: IP2
-          SERVER1: 10.0.15.67
-          SERVER2: 10.0.15.68
-          SERVER3: 10.0.15.69
+        project_src: /home/diwo/ansible/mesos_cluster/mesos_slaves
+  environment:
+    HOSTIP: 10.0.15.78
+    SERVER1: 10.0.15.77
+    SERVER2: 10.0.15.78
+    SERVER3: 10.0.15.79
 
-- name: mesos-zookeeper cluster node3
-  hosts: node3
+- name: mesos-zookeeper cluster Node3
+  hosts: Node3
   gather_facts: no
-  tasks:
+  sudo: yes
+    - apt:
+        name: python-yaml
+    - apt:
+        name: docker.io
+        state: latest
+        update_cache: yes
+    - apt_key:
+        keyserver: hkp://p80.pool.sks-keyservers.net:80
+        id: 58118E89F3A912897C070ADBF76221572C52609D
+    - shell: echo 'deb https://apt.dockerproject.org/repo ubuntu-trusty main' >> /etc/apt/sources.list.d/docker.list
+    - apt:
+        name: docker-engine
+        update_cache: yes
+        purge: yes
+    - apt:
+        name: python-pip
+        force: yes
+        update_cache: yes
+    - pip:
+        name: docker-compose
+    - shell: mkdir /home/diwo
+    - git:
+        repo: https://github.com/SandeepSarpe/mesos-zookeeper-cluster.git
+        dest: /home/diwo/
     - docker_service:
-        project_src: /mesos_cluster/mesos_slaves
-        environment:
-          MYID: 3
-          HOSTIP: IP3
-          SERVER1: 10.0.15.67
-          SERVER2: 10.0.15.68
-          SERVER3: 10.0.15.69
+        project_src: /home/diwo/ansible/mesos_cluster/mesos_slaves
+  environment:
+    HOSTIP: 10.0.15.79
+    SERVER1: 10.0.15.77
+    SERVER2: 10.0.15.78
+    SERVER3: 10.0.15.79
