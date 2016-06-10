@@ -18,6 +18,7 @@ RUN sudo apt-get remove -y --auto-remove openjdk* && \
 #Install wget
 RUN apt-get install -y wget
 
+#Install spark
 RUN mkdir /opt/spark
 RUN wget http://ts.teranetworks.com:9080/nexus/content/repositories/thirdparty/org/spark/spark/1.6.0/spark-1.6.0.tgz -P /home/ubuntu
 RUN tar --strip-components=1 -xzf /home/ubuntu/spark-1.6.0.tgz -C /opt/spark
@@ -28,3 +29,19 @@ ENV SPARK_HOME /opt/spark
 ENV PATH $PATH:/opt/spark/bin
 ENV MESOS_NATIVE_JAVA_LIBRARY /usr/local/lib/libmesos.so
 RUN echo 'Set environment variables for spark.'
+
+#Install mesos
+
+RUN apt-get update && \
+apt-get install --no-install-recommends -y ca-certificates curl && \
+rm -rf /var/lib/apt/lists/*
+
+# https://github.com/Yelp/dumb-init
+RUN curl -fLsS -o /usr/local/bin/dumb-init https://github.com/Yelp/dumb-init/releases/download/v1.0.2/dumb-init_1.0.2_amd64 && chmod +x /usr/local/bin/dumb-init
+
+RUN apt-key adv --keyserver keyserver.ubuntu.com --recv E56151BF && \
+echo deb http://repos.mesosphere.io/ubuntu trusty main > /etc/apt/sources.list.d/mesosphere.list && \
+apt-get update && \
+apt-get install --no-install-recommends -y mesos=0.28.1-2.0.20.ubuntu1404 && \
+rm -rf /var/lib/apt/lists/*
+
