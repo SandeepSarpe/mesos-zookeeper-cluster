@@ -20,7 +20,7 @@ RUN apt-get install -y wget
 
 RUN mkdir /opt/spark
 RUN wget http://ts.teranetworks.com:9080/nexus/content/repositories/thirdparty/org/spark/spark/1.6.0/spark-1.6.0.tgz
-RUN tar --strip-components=1 -xzf /spark-1.6.0.tgz -C /opt/spark
+RUN tar --strip-components=1 -xzf /home/$(whoami)/spark-1.6.0.tgz -C /opt/spark
 RUN echo 'Updated the base ubuntu image with dependencies needed for Spark.'
 
 RUN echo 'Setting up environment variables for spark.......'
