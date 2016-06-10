@@ -8,3 +8,7 @@
         dest: /home/ubuntu/diwo/
     - docker_service:
         project_src: /home/ubuntu/diwo/ansible/mesos_cluster/spark_job_submitter
+  environment:
+    SERVER1: 10.0.1.4
+    SERVER2: 10.0.1.135
+    SERVER3: 10.0.1.5
