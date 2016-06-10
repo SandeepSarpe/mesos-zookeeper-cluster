@@ -19,7 +19,7 @@ RUN sudo apt-get remove -y --auto-remove openjdk* && \
 RUN apt-get install -y wget
 
 RUN mkdir /opt/spark
-RUN wget http://ts.teranetworks.com:9080/nexus/content/repositories/thirdparty/org/spark/spark/1.6.0/spark-1.6.0.tgz
+RUN wget http://ts.teranetworks.com:9080/nexus/content/repositories/thirdparty/org/spark/spark/1.6.0/spark-1.6.0.tgz -P /home/ubuntu
 RUN tar --strip-components=1 -xzf /home/ubuntu/spark-1.6.0.tgz -C /opt/spark
 RUN echo 'Updated the base ubuntu image with dependencies needed for Spark.'
 
