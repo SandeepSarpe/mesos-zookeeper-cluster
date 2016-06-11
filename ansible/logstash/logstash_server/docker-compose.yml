@@ -7,9 +7,11 @@ services:
         logstashserverip: ${LOGSTASH_SERVER_IP}
         logstashserverhostname: ${LOGSTASH_SERVER_HOSTNAME}
         logstashservernginxpass: ${LOGSTASH_SERVER_NGINXPASS}
-    image: logstashserver
+    image: logstashserver-image
     restart: always
     container_name: logstashserver
     hostname: logstashserver
     network_mode: host
     privileged: true
+    ports:
+      - "9001:9002"
