@@ -28,5 +28,13 @@ apt-get -y install python-pip
 pip install docker-compose
 
 # Creating ansible docker container
-echo "Creating ansible docker container ................"
-docker-compose up -d
+#echo "Creating ansible docker container ................"
+#docker-compose up -d
+
+# Install ansible
+echo "Installing ansible ................"
+sudo apt-get update && \
+sudo apt-get install --no-install-recommends -y software-properties-common && \
+sudo apt-add-repository ppa:ansible/ansible && \
+sudo apt-get update && \
+sudo apt-get install -y ansible
