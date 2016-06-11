@@ -5,9 +5,9 @@
   tasks:
     - git:
         repo: https://github.com/SandeepSarpe/mesos-zookeeper-cluster.git
-        dest: /home/ubuntu/
+        dest: /home/ubuntu/diwo/
     - docker_service:
-        project_src: /home/ubuntu/ansible/logstash/logstash_server
+        project_src: /home/ubuntu/diwo/ansible/logstash/logstash_server
   environment:
     LOGSTASH_SERVER_IP: 10.0.1.215
     LOGSTASH_SERVER_HOSTNAME: ec2-52-91-199-29.compute-1.amazonaws.com
