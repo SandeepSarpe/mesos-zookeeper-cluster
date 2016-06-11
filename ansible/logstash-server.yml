@@ -1,33 +1,13 @@
 - name: logstash server setup
-  hosts: ec2-52-91-199-29.compute-1.amazonaws.com
+  hosts: localhost
   gather_facts: no
   sudo: yes
   tasks:
-    - apt:
-        name: python-yaml
-    - apt:
-        name: docker.io
-        state: latest
-        update_cache: yes
-    - apt_key:
-        keyserver: hkp://p80.pool.sks-keyservers.net:80
-        id: 58118E89F3A912897C070ADBF76221572C52609D
-    - shell: echo 'deb https://apt.dockerproject.org/repo ubuntu-trusty main' >> /etc/apt/sources.list.d/docker.list
-    - apt:
-        name: docker-engine
-        update_cache: yes
-        purge: yes
-    - apt:
-        name: python-pip
-        force: yes
-        update_cache: yes
-    - pip:
-        name: docker-compose
     - git:
         repo: https://github.com/SandeepSarpe/mesos-zookeeper-cluster.git
         dest: /home/ubuntu/
     - docker_service:
-        project_src: /home/ubuntu/ansible/mesos_cluster/mesos_zookeeper_cluster
+        project_src: /home/ubuntu/ansible/logstash/logstash_server
   environment:
     LOGSTASH_SERVER_IP: 10.0.1.215
     LOGSTASH_SERVER_HOSTNAME: ec2-52-91-199-29.compute-1.amazonaws.com
