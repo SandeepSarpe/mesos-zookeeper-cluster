@@ -23,6 +23,6 @@
     - docker_service:
         project_src: /home/ubuntu/diwo/ansible/logstash/logstash_server
   environment:
-    LOGSTASH_SERVER_IP: 10.0.1.215
+    LOGSTASH_SERVER_IP: 52.91.199.29
     LOGSTASH_SERVER_HOSTNAME: ec2-52-91-199-29.compute-1.amazonaws.com
     LOGSTASH_SERVER_NGINXPASS: loven

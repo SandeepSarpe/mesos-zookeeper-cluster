@@ -10,8 +10,4 @@ services:
     environment:
       SPARK_MASTER_URI: mesos://zk://${SERVER1}:2181,${SERVER2}:2181,${SERVER3}:2181/mesos
     ports:
-      - "9003:9001"
-
-
-
-
+      - "9005:9001"
