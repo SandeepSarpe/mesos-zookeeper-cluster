@@ -2,9 +2,9 @@ version: '2'
 services:
   spark-job-submitter:
     build: .
-    image: spark-job-submitter-image
+    image: spark-job-submitter-image_2
     restart: always
-    container_name: spark-job-submitter
+    container_name: spark-job-submitter_2
     network_mode: host
     privileged: true
     environment:
