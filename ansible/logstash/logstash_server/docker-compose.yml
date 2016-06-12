@@ -13,5 +13,4 @@ services:
     hostname: logstashserver
     network_mode: host
     privileged: true
-    ports:
-      - "9001:9002"
+
