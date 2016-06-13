@@ -1,0 +1,10 @@
+- name: cassadra
+  hosts: localhost
+  gather_facts: no
+  sudo: yes
+  tasks:
+    - git:
+        repo: https://github.com/SandeepSarpe/mesos-zookeeper-cluster.git
+        dest: /home/ubuntu/diwo/
+    - docker_service:
+        project_src: /home/ubuntu/diwo/ansible/cassandra
