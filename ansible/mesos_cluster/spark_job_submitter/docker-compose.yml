@@ -4,8 +4,14 @@ services:
     build: .
     image: spark-job-submitter-image
     restart: always
-    container_name: spark-job-submitter
+    container_name: spark-job-submitter_new
+    hostname: submitter
     network_mode: host
     privileged: true
     environment:
       SPARK_MASTER_URI: mesos://zk://${SERVER1}:2181,${SERVER2}:2181,${SERVER3}:2181/mesos
+      CASSANDRA_HOST: cassandra
+    volumes:
+      - /home/ubuntu/:/tmp/
+    links:
+      - cassandra:cassandra1
