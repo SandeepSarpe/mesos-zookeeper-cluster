@@ -3,7 +3,7 @@ services:
 
   zookeeper:
     image: mesoscloud/zookeeper:3.4.8-ubuntu-14.04
-    container_name: zookeeper_1
+    container_name: zookeeper_${MYID}
     hostname: zookeeper${MYID}
     network_mode: host
     restart: always
@@ -13,7 +13,7 @@ services:
 
   mesos-master:
     image: mesoscloud/mesos-master:0.28.1-ubuntu-14.04
-    container_name: mesos-master_1
+    container_name: mesos-master_${MYID}
     hostname: mesos-master${MYID}
     network_mode: host
     restart: always
